@@ -8,3 +8,6 @@ species: String,
 extinct: Boolean,
 location: String,
 lifeExpectancy: Number.
+
+**Technologies used: **
+Express/MongoDB/Mongoose/Morgan/EJS/CSS
