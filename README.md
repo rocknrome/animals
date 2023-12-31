@@ -1,4 +1,4 @@
-**##Animals App**
+**Animals App**
 
 Build a full CRUD App 
 
