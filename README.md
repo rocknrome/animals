@@ -16,7 +16,8 @@ Express/MongoDB/Mongoose/Morgan/EJS/CSS
 
 ![image](https://github.com/rocknrome/animals/assets/126816805/14ab5132-ffdf-4803-93b8-6af411823efd)
 
-![image](https://github.com/rocknrome/animals/assets/126816805/2ab59de3-fb91-4dda-932f-7092b0b147f5)
+![image](https://github.com/rocknrome/animals/assets/126816805/edd6628b-88d9-4475-b15c-d173d6df3908)
+
 
 
 
