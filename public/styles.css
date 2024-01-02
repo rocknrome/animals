@@ -1,0 +1,19 @@
+.nav-container {
+    text-align: center; /* Center the container content */
+}
+
+.nav-links {
+    display: inline-block; /* Allows the block to be centered */
+    padding: 10px 0;
+}
+
+.nav-links a {
+    margin: 0 10px; /* Adds horizontal space between links */
+    text-decoration: none; /* Optional: Removes underline from links */
+    color: inherit; /* Inherits color from parent, useful for consistency */
+}
+
+/* Optional: Style for hover effect */
+.nav-links a:hover {
+    text-decoration: underline; /* Re-add underline on hover for visual feedback */
+}
