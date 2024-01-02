@@ -43,22 +43,23 @@ async function destroy(req, res) {
 
 async function update(req, res) {
     try {
-        // Then find by id and update with the req.body
+        // Convert 'extinct' checkbox value to boolean
+        req.body.extinct = req.body.extinct === 'on';
+
+        // Find by id and update with the req.body
         let updatedAnimal = await req.model.Animal.findByIdAndUpdate(
             req.params.id,
             req.body,
-            {
-                new: true
-            }
+            { new: true }
         );
 
-        // redirect to the show route with the updated animal
+        // Redirect to the show route with the updated animal
         res.redirect(`/animals/${updatedAnimal._id}`);
-
     } catch (error) {
-        res.send("something went wrong in this route");
+        res.status(500).send("Error updating animal: " + error.message);
     }
 }
+
 
 async function create(req, res) {
     try {
