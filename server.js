@@ -2,7 +2,7 @@
 
 // DEPENDENCIES
 require("dotenv").config(); // this is how we make use of our .env variables
-//require("./config/db"); // bring in our db config
+require("./config/db"); // bring in our db config
 const express = require("express");
 const morgan = require("morgan"); // logger
 const methodOverride = require("method-override");
@@ -32,10 +32,25 @@ app.use(morgan("dev")); // logging
 app.use(express.urlencoded({ extended: true })); // body parser this is how we get access to req.body
 app.use(methodOverride("_method")); // Lets us use DELETE PUT HTTP verbs
 app.use("/public", express.static("public")); // serve up our public directory with the url prefix of /public/styles.css
+// Set the view engine to ejs
+app.set('view engine', 'ejs');
+
 
 /**
  * Routes & Router
  */
+
+// Root Route
+app.get('/', async (req, res) => {
+    try {
+        const animals = await req.model.Animal.find({});
+        res.render('index', { animals });
+    } catch (error) {
+        res.status(500).send('Error occurred: ' + error.message);
+    }
+});
+
+
 // app.use(prefix url, router to execute)
 app.use("/animals", animalRouter); // Updated to use animalRouter
 

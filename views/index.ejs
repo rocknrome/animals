@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("./partials/head.ejs") %>
+<body>
+    <%- include("./partials/nav.ejs") %>
+    <h1>Animal List Index</h1>
+    <p>Click species to see more</p>
+
+    <div class="animal-container">
+        <% for (let i = 0; i < animals.length; ++i) { %>
+            <div class="animal">
+                <a href="/animals/<%= animals[i]._id %>" class="animal-species">
+                    <%= animals[i].species %>
+                </a>
+                <!-- delete form goes here -->
+                <!-- cta - call to action -->
+                <div class="cta">
+                    <form action="/animals/<%= animals[i]._id%>/?_method=DELETE" method="post" id="deleteform">
+                        <input type="submit" value="Remove Animal">
+                    </form>
+                    <!-- Link to our edit page -->
+                    <a href="/animals/edit/<%= animals[i]._id %>/" class="animal-edit">Edit <%= animals[i].species %></a>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</body>
+</html>

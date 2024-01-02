@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("./partials/head.ejs") %>
+<body>
+    <%- include("./partials/nav.ejs") %>
+    <div id="new-body">
+        <h1>New Animal Form</h1>
+        <form action="/animals" method="post" id="newform">
+            <fieldset id="newanimal">
+                <legend>Add an animal to the list</legend>
+                    <label for="species">Species</label>
+                    <input type="text" name="species" id="species"><br>
+                    <label for="location">Location</label>
+                    <input type="text" name="location" id="location"><br>
+                    <label for="lifeExpectancy">Life Expectancy</label>
+                    <input type="number" name="lifeExpectancy" id="lifeExpectancy"><br>
+                    <label for="extinct">Extinct</label>
+                    <input type="checkbox" name="extinct" id="extinct"><br>
+                <input type="submit" value="Add animal to the list">
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>
