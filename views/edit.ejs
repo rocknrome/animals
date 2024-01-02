@@ -4,18 +4,28 @@
 <body>
     <%- include("./partials/nav.ejs") %>
 
-    <h1>Editing <%= animal.species %></h1>
+    <div class="container">
+        <div class="row">
+            <div class="column column-50 column-offset-25">
+                <h1>Editing <%= animal.species %></h1>
 
-    <form action="/animals/<%= animal._id %>/?_method=PUT" method="post">
-        Species: <input type="text" name="species" value="<%= animal.species %>"><br>
-        Location: <input type="text" name="location" value="<%= animal.location %>"><br>
-        Life Expectancy: <input type="number" name="lifeExpectancy" value="<%= animal.lifeExpectancy %>"><br>
-        Extinct: <input
-            type="checkbox"
-            name="extinct"
-            <% if(animal.extinct === true){ %> checked <% } %>
-        ><br>
-        <input type="submit" value="Update Animal">
-    </form>
+                <form action="/animals/<%= animal._id %>/?_method=PUT" method="post">
+                    <label for="species">Species:</label>
+                    <input type="text" name="species" id="species" value="<%= animal.species %>"><br>
+
+                    <label for="location">Location:</label>
+                    <input type="text" name="location" id="location" value="<%= animal.location %>"><br>
+
+                    <label for="lifeExpectancy">Life Expectancy:</label>
+                    <input type="number" name="lifeExpectancy" id="lifeExpectancy" value="<%= animal.lifeExpectancy %>"><br>
+
+                    <label for="extinct">Extinct:</label>
+                    <input type="checkbox" name="extinct" id="extinct" <% if(animal.extinct){ %> checked <% } %>><br>
+
+                    <input type="submit" value="Update Animal" class="button">
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

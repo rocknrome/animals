@@ -10,7 +10,10 @@
         <% for (let i = 0; i < animals.length; ++i) { %>
             <div class="row" style="margin-bottom: 20px;">
                 <div class="column column-50">
-                    <strong><%= animals[i].species %></strong>
+                    <!-- Updated to make the animal names clickable -->
+                    <a href="/animals/<%= animals[i]._id %>" class="animal-species">
+                        <strong><%= animals[i].species %></strong>
+                    </a>
                 </div>
                 <div class="column column-25">
                     <form action="/animals/<%= animals[i]._id%>/?_method=DELETE" method="post">
