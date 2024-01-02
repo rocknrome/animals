@@ -62,11 +62,19 @@ async function update(req, res) {
 
 async function create(req, res) {
     try {
-        let newAnimal = await req.model.Animal.create(req.body);
-        res.redirect("/animals");
+        // Convert 'extinct' checkbox value to boolean
+        const isExtinct = req.body.extinct === 'on';
 
+        let newAnimal = await req.model.Animal.create({
+            species: req.body.species,
+            location: req.body.location,
+            lifeExpectancy: req.body.lifeExpectancy,
+            extinct: isExtinct
+        });
+
+        res.redirect("/animals");
     } catch (err) {
-        res.send(err);
+        res.send("Error creating animal: " + err.message);
     }
 }
 
