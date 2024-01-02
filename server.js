@@ -50,6 +50,22 @@ app.get('/', async (req, res) => {
     }
 });
 
+// Seeding Route
+app.get('/seed', async (req, res) => {
+    try {
+        // Clear the existing data
+        await Animal.deleteMany({});
+
+        // Insert the seed data
+        await Animal.create(seedData);
+
+        // Send a response or redirect
+        res.send('Database has been seeded!');
+    } catch (error) {
+        res.status(500).send('Error occurred during seeding: ' + error.message);
+    }
+});
+
 
 // app.use(prefix url, router to execute)
 app.use("/animals", animalRouter); // Updated to use animalRouter
