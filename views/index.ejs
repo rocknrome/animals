@@ -3,23 +3,24 @@
     <%- include("./partials/head.ejs") %>
 <body>
     <%- include("./partials/nav.ejs") %>
-    <h1>Animal List Index</h1>
-    <p>Click species to see more</p>
+    <div class="container">
+        <h1>Animal List Index</h1>
+        <p>Click species to see more</p>
 
-    <div class="animal-container">
         <% for (let i = 0; i < animals.length; ++i) { %>
-            <div class="animal">
-                <a href="/animals/<%= animals[i]._id %>" class="animal-species">
-                    <%= animals[i].species %>
-                </a>
-                <!-- delete form goes here -->
-                <!-- cta - call to action -->
-                <div class="cta">
-                    <form action="/animals/<%= animals[i]._id%>/?_method=DELETE" method="post" id="deleteform">
-                        <input type="submit" value="Remove Animal">
+            <div class="row" style="margin-bottom: 20px;">
+                <div class="column column-50">
+                    <strong><%= animals[i].species %></strong>
+                </div>
+                <div class="column column-25">
+                    <form action="/animals/<%= animals[i]._id%>/?_method=DELETE" method="post">
+                        <button type="submit" class="button button-outline">Remove</button>
                     </form>
-                    <!-- Link to our edit page -->
-                    <a href="/animals/edit/<%= animals[i]._id %>/" class="animal-edit">Edit <%= animals[i].species %></a>
+                </div>
+                <div class="column column-25">
+                    <form action="/animals/edit/<%= animals[i]._id %>/" method="get">
+                        <button type="submit" class="button button-outline">Edit</button>
+                    </form>
                 </div>
             </div>
         <% } %>

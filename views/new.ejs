@@ -3,7 +3,7 @@
     <%- include("./partials/head.ejs") %>
 <body>
     <%- include("./partials/nav.ejs") %>
-    <div id="new-body">
+    <div id="new-body" class="container">
         <h1>New Animal Form</h1>
         <form action="/animals" method="post" id="newform">
             <fieldset id="newanimal">
@@ -16,7 +16,7 @@
                     <input type="number" name="lifeExpectancy" id="lifeExpectancy"><br>
                     <label for="extinct">Extinct</label>
                     <input type="checkbox" name="extinct" id="extinct"><br>
-                <input type="submit" value="Add animal to the list">
+                <input type="submit" value="Add Animal to the List" class="button button-outline">
             </fieldset>
         </form>
     </div>
