@@ -2,6 +2,8 @@
 
 Build a full CRUD App 
 
+Deployed link: https://animals-full-crud-app-vwwf.onrender.com/
+
 **The Animal Model:**
 
 species: String,
